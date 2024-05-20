@@ -1,6 +1,6 @@
-package com.poly.tutor.service;
+package com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.service;
 
-import com.poly.tutor.entity.SanPham;
+import com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.entity.SanPham;
 
 import java.util.ArrayList;
 import java.util.List;

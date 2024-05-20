@@ -1,4 +1,4 @@
-package com.poly.tutor.entity;
+package com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

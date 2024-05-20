@@ -1,7 +1,7 @@
-package com.poly.tutor.controller;
+package com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.controller;
 
-import com.poly.tutor.entity.SanPham;
-import com.poly.tutor.service.SanPhamService;
+import com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.entity.SanPham;
+import com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.service.SanPhamService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
