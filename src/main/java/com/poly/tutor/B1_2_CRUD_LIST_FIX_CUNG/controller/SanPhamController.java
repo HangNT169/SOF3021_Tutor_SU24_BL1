@@ -32,20 +32,37 @@ public class SanPhamController {
     @GetMapping("/san-pham/detail/{ma1}")
     public String detailSanPham(@PathVariable String ma1, Model model) {
         SanPham sp = service.detailSanPham(ma1);
-        model.addAttribute("sp1", sp);
+        model.addAttribute("sp", sp);
         model.addAttribute("lists", service.getAll());
         return "buoi1/buoi1";
     }
 
     @PostMapping("/san-pham/add")
-    public String addSanPham(@Valid @ModelAttribute("sp") SanPham sp, BindingResult bindingResult) {
+    public String addSanPham(@Valid @ModelAttribute("sp") SanPham sp, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-//            model.addAttribute("sp", new SanPham());
+            model.addAttribute("lists", service.getAll());
             return "buoi1/buoi1";
         }
         service.addSanPham(sp);
         return "redirect:/san-pham/view-all";
     }
 
+    @GetMapping("/san-pham/view-update/{ma1}")
+    public String viewUpdate(@PathVariable String ma1, Model model) {
+        SanPham sp = service.detailSanPham(ma1);
+        model.addAttribute("sp", sp);
+        model.addAttribute("lists", service.getAll());
+        return "buoi1/update";
+    }
 
+    @PostMapping("/san-pham/update/{ma}")
+    public String updateSanPham(@PathVariable String ma, @Valid @ModelAttribute("sp") SanPham sp,
+                                BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("sp", sp);
+            return "redirect:/san-pham/view-update/" + ma;
+        }
+        service.updateSanPham(sp, ma);
+        return "redirect:/san-pham/view-all";
+    }
 }

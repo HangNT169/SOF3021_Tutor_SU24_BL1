@@ -7,13 +7,13 @@
 </head>
 <body>
 <form:form modelAttribute="sp" method="post" action="/san-pham/add">
-    ID: <form:input path="id"/>
+    ID: <form:input type="text" path="id" value="${sp.id}"/>
     <form:errors path="id" />
-    Ma: <form:input path="ma"/>
+    Ma: <form:input type="text" path="ma" value="${sp.ma}"/>
     <form:errors path="ma" />
-    Ten: <form:input path="ten"/>
+    Ten: <form:input type="text" path="ten" value="${sp.ten}"/>
     <form:errors path="ten"/>
-    Gia: <form:input path="gia"/>
+    Gia: <form:input type="text" path="gia" value="${sp.gia}"/>
     <form:errors path="gia"/>
     Loai:<form:select path="loai">
             <form:option value="van phong" label="VP"/>
@@ -65,6 +65,7 @@
             <td>
                 <a href="/san-pham/remove/${sp.ma}">Delete</a>
                 <a href="/san-pham/detail/${sp.ma}">Detail</a>
+                <a href="/san-pham/view-update/${sp.ma}">Update</a>
             </td>
         </tr>
     </c:forEach>
