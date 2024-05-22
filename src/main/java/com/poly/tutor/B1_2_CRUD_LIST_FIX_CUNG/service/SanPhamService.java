@@ -11,11 +11,12 @@ public class SanPhamService {
 
     public SanPhamService() {
         // add lan luot cac phan tu
-        lists.add(new SanPham(1, "ms01", "laptop", "van phong", 20000));
-        lists.add(new SanPham(2, "gdsf", "laptop", "van phong 1", 543254));
-        lists.add(new SanPham(3, "ms0gs1", "laptop", "van phong 2", 20000));
-        lists.add(new SanPham(4, "gdf", "laptop", "van phong 3", 532));
-        lists.add(new SanPham(5, "ms01", "laptop", "van phong 4", 20000));
+        lists.add(new SanPham(1, "ms01", "laptop",20000, "van phong"));
+        lists.add(new SanPham(1, "ms01", "laptop",20000, "van phong"));
+        lists.add(new SanPham(1, "ms01", "laptop",20000, "van phong"));
+        lists.add(new SanPham(1, "ms01", "laptop",20000, "van phong"));
+        lists.add(new SanPham(1, "ms01", "laptop",20000, "van phong"));
+        lists.add(new SanPham(1, "ms01", "laptop",20000, "van phong"));
     }
 
     public List<SanPham> getAll() {
@@ -37,5 +38,9 @@ public class SanPhamService {
             }
         }
         return null;
+    }
+
+    public void addSanPham(SanPham sanPham) {
+        lists.add(sanPham);
     }
 }

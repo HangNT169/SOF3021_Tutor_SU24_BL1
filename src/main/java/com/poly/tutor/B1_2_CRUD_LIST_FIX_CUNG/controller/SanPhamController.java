@@ -2,10 +2,13 @@ package com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.controller;
 
 import com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.entity.SanPham;
 import com.poly.tutor.B1_2_CRUD_LIST_FIX_CUNG.service.SanPhamService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SanPhamController {
@@ -15,6 +18,7 @@ public class SanPhamController {
     @GetMapping("/san-pham/view-all")
     public String hienThi(Model model) {
         model.addAttribute("lists", service.getAll());
+        model.addAttribute("sp", new SanPham()); // KHỞI TẠO 1 ĐỐI TƯỢNG RỖNG ĐỂ SANG FORM HỨNG LỖI
         return "buoi1/buoi1";
     }
 
@@ -31,4 +35,16 @@ public class SanPhamController {
         model.addAttribute("lists", service.getAll());
         return "buoi1/buoi1";
     }
+
+    @PostMapping("/san-pham/add")
+    public String addSanPham(@Valid SanPham sp, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+//            model.addAttribute("sp", new SanPham());
+            return "buoi1/buoi1";
+        }
+        service.addSanPham(sp);
+        return "redirect:/san-pham/view-all";
+    }
+
+
 }
