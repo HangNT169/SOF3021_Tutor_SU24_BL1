@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -37,7 +38,7 @@ public class SanPhamController {
     }
 
     @PostMapping("/san-pham/add")
-    public String addSanPham(@Valid SanPham sp, BindingResult bindingResult) {
+    public String addSanPham(@Valid @ModelAttribute("sp") SanPham sp, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
 //            model.addAttribute("sp", new SanPham());
             return "buoi1/buoi1";

@@ -22,7 +22,9 @@
             <form:option value="van phong 3" label="VP3"/>
             <form:option value="van phong 4" label="VP4"/>
         </form:select>
-    <form:button type="submit">ADD</form:button>--%>
+    <form:errors path="loai"/>
+
+    <form:button type="submit">ADD</form:button>
 </form:form>
 <%--<form method="post" action="/san-pham/add">--%>
 <%--    ID: <input type="text" name="id" value="${sp1.id}">--%>
