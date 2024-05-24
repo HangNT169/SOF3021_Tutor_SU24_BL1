@@ -9,12 +9,12 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body class="container">
-<form action="/add" method="post">
-    Category code: <input type="text" name="categoryCode" class="form-control"/>
+<form action="/update/${cate.id}" method="post">
+    Category code: <input type="text" name="categoryCode" value="${cate.categoryCode}" class="form-control"/>
     <br/>
-    Category name: <input type="text" name="categoryName" class="form-control"/>
+    Category name: <input type="text" name="categoryName" value="${cate.categoryName}" class="form-control"/>
     <br/>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">Update</button>
     <br>
 </form>
 </body>

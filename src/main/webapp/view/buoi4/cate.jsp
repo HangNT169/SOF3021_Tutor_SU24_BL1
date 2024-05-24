@@ -14,6 +14,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Code</th>
+        <th>Action</th>
     </tr>
     <tbody>
         <c:forEach items="${lists}" var="u" varStatus="i">
@@ -22,6 +23,10 @@
                <td>${u.id}</td>
                <td>${u.categoryName}</td>
                <td>${u.categoryCode}</td>
+               <td>
+                   <a href="/view-update/${u.id}">Edit</a>
+                   <a href="/delete/${u.id}">Delete</a>
+               </td>
            </tr>
         </c:forEach>
     </tbody>
