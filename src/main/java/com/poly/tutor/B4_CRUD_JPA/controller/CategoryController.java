@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -28,9 +29,25 @@ public class CategoryController {
     @PostMapping("/add")
     public String add(Category1 category1) {
         repo.save(category1);
-//        repo.delete(doi tuong);
-//        repo.deleteById(Khoa chinh);
-//        Category1 category11 = repo.findById(khoa chinh).get();
+        return "redirect:/hien-thi";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        repo.deleteById(id);
+        return "redirect:/hien-thi";
+    }
+
+    @GetMapping("/view-update/{id}")
+    public String viewUpdate(@PathVariable Long id, Model model) {
+        Category1 category1 = repo.findById(id).get();
+        model.addAttribute("cate", category1);
+        return "buoi4/update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(Category1 category1) {
+        repo.save(category1);
         return "redirect:/hien-thi";
     }
 }
